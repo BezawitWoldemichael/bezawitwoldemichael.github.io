@@ -1,0 +1,32 @@
+body{
+
+}
+h1{
+    text-align: center;
+    text-decoration: underline;
+    background-color: rgb(240,240,240);
+    color: rgb(165,165,2);
+    font-family: sans-serif
+}
+
+h2{
+    text-decoration: underline;
+    background-color: rgb(240,240,240);
+    color: rgb(165,165,2);
+    font-family: sans-serif
+}
+
+.comments{
+font-style: italic;
+    background-color:#FFFFA8;
+}
+
+
+a > img{
+    float: right;
+}
+
+.footer{
+    float: right;
+        
+}
