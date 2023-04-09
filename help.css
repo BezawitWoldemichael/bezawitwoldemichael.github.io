@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.head-text {
+    background-color: rgb(53, 53, 110);
+    color: whitesmoke;
+    padding: 10px;
+}
+
+nav {
+    background-color: rgb(241, 243, 243);
+}
+
+.top-right {
+    float: right;
+    text-decoration: none;
+}
+
+div.row {
+    width: 100%;
+}
+
+.top-right a {
+    text-decoration: none;
+    color: black;
+}
+
+div.top-right {
+    width: 100%
+}
+
+.topnav a {
+    font-size: 16px;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+.col-md-6,
+#login-text {
+    flex: 0 0 auto;
+    padding: 100px;
+    width: 50%;
+}
+
+
+
+h1 {
+    text-align: center;
+    color: whitesmoke;
+    padding: 5%;
+}
+
+h4 {
+    text-align: center;
+    color: lightblue;
+}
+
+h6 {
+    color: rgb(198, 180, 180);
+}
+
+.text6 {
+    text-align: center;
+    padding: auto;
+    color: rgb(230, 221, 209);
+    padding: 30%;
+}
+
+.text7 {
+    float: right;
+}
+
+input[type=text],
+input[type=password] {
+    width: 80%;
+    padding: 10px;
+    /* margin: 5px 0 22px 0; */
+    display: inline-block;
+
+    background: #f1f1f1;
+    color: rgb(212, 191, 164);
+}
+
+.btn-outline-dark {
+    color: rgb(236, 202, 202);
+    background-color: black;
+    width: 80%;
+    padding: 10px;
+}
+
+.btn1 {
+    padding: 1px 100px;
+    width: 80%;
+}
+
+#btn2 {
+    color: rgb(236, 202, 202);
+    background-color: black;
+
+}
+
+.support-center {
+    background-color: rgb(241, 236, 236);
+}
+
+.fpassword {
+    padding-left: 80px;
+}
+
+@media screen and (min-width: 700px) {
+    body {
+        background-color: blue;
+    }
+}
