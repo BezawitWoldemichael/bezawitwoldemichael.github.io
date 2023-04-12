@@ -106,7 +106,7 @@ let returnEvenNumbersOnly = (args) => {
   };
   findSecondBiggest([1, 2, 3, 4, 5]);
   
-  let printFibo = (n, a, b) => {
+  let printFibonaci = (n, a, b) => {
     let print = "";
     let next;
     for (let i = 0; i < n; i++) {
@@ -117,7 +117,7 @@ let returnEvenNumbersOnly = (args) => {
     }
     console.log(print);
   };
-  printFibo(5, 2, 3);
+  printFibonaci(5, 2, 3);
   
   let sums = (args) => sumReduce(args.filter((x) => x > 20));
   console.log(sums([20, 22, 3, 22]));
