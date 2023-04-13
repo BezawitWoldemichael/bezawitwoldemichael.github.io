@@ -1,3 +1,5 @@
+"use strict";
+
 function max(a,b){ //first question
     if(a>b)
     return a;
