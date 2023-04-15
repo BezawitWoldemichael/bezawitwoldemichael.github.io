@@ -1,5 +1,31 @@
 "use strict";
 
+
+// question #9
+
+let printOddNumbersOnly = (args) => {
+  for (let num of args) {
+    if (num % 2 != 0) console.log(num);
+  }
+};
+
+// question #10
+let returnEvenNumbersOnly = (args) => {
+  let evens = [];
+  for (let num of args) {
+    if (num % 2 == 0) evens.push(num);
+  }
+  return evens;
+};
+let computeSumOfSquares = (args) =>
+  args.reduce((total, num) => total + num * num, 0);
+
+let computeSumOfSquaresOfEvensOnly = (args) =>
+  computeSumOfSquares(returnEvenNumbersOnly(args));
+
+
+
+
 function max(a,b){ //first question
     if(a>b)
     return a;
