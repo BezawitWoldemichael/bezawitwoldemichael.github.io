@@ -1,11 +1,13 @@
-.mood{
-    height: 250px;
-    width: 250px;
-}
-
 about{
     background-color: rgb(68, 61, 61);
     color: white;
     padding: 50px;
     font-family: 'Times New Roman', Times, serif;
     margin: 2px;
+    
+.mood{
+    height: 250px;
+    width: 250px;
+}
+
+
