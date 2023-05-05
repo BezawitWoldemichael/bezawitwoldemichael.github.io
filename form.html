@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>SignUp</title>
+        <link rel="stylesheet" href="form.css">
+    </head>
+
+    <body>
+        <header>
+            <h1>nerdLuv</h1>
+            <h3>where meek geeks meet</h3>
+        </header>
+        <div class="mainContent">
+            <div class="signUpForm">
+                <fieldset>
+                    <legend>New User SignUp:</legend>
+                    <form action="http://mumstudents.org/params.php">
+                        
+                        
+                    
+
+                        <div class="entry">
+                            <label > Name: <input class="textField" type="text" name="name" maxlength="16" size="10" required> </label>
+                        </div>
+                        <div class="entry">
+                            <label>
+                                Gender:
+                                <label><input type="radio" name="gender" value="male" id="option1" >Male</label>
+                                <label><input type="radio" name="gender" id="option2" value="female" checked >Female</label>
+                            </label>
+                        </div>
+                        <div class="entry">
+                            <label > Age: <input type="text" name="age" maxlength="2" size="6" pattern="\d{1,2}" required> </label>
+                        </div>
+                        <div class="entry">
+                            <label > Personality types: <input class="textField"  type="text" name="personalityTypes" size="6" maxlength="4" pattern="[A-Z]{4}" required>
+                                <a href="http://www.humanmetrics.com/cgi-win/JTypes2.asp">(Don't know your type?)</a>
+                            </label>
+                        </div>
+                        <div class="entry">
+                            <label>Favorite OS:
+                                <select name="favOS" >
+                                    
+                                        <option value="Windows" selected>Windows</option>
+                                        <option value="Mac OS X">Mac OS X</option>
+                                        <option value="Linux">Linux</option>
+                                    
+                                </select>
+                            </label>
+                           
+                        </div>
+                        <div class="entry">
+                            <label > Seeking age: <input class="textField" type="text" name="min" maxlength="2" size="6" pattern="\d{1,2}" placeholder="min" required>
+                                <span>to</span>
+                                <input class="textField" type="text" name="max" maxlength="2" size="6" pattern="\d{1,2}" placeholder="max" required>
+                             </label> 
+                        </div>
+                       
+                    
+
+                        <div class="btn">
+                            <button type="submit">Sign Up</button>
+                                       
+                          
+                        </div>
+                       
+                       
+                        
+
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                This page is for single nerds to meet and date each other! Type in your
+                personal information annd wait for the nerdly luv to begin! Thank you for using our site.
+            </p>
+            <br>
+            <p>Results and page &copy; Copyright NerdLuv Inc.</p>
+            <br>
+            <a href="../index.html"> <span class="arrow">&lt; - Back to front page</span> </a> <br/>
+            <br>
+            <a class="footer"
+                
+                    href="https://validator.w3.org/nu/check/referer"> <img
+                    src="http://mumstudents.org/cs472/2014-09/images/w3c-html.png"
+                    alt="html validator">
+                </a>
+
+                <a class="footer"
+                    href="https://jigsaw.w3.org/css-validator/check/referer"> <img
+                    src="http://mumstudents.org/cs472/2013-09/images/w3c-css.png"
+                    alt="css validator">
+                </a>
+        </footer>
+    </body>
+</html>
