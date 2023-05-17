@@ -1,0 +1,3 @@
+myDate function () {
+return Date();
+};
