@@ -1,3 +1,5 @@
+
+
 window.onload = function () {
     document.getElementById("biggerDecorations").onclick = myTimer;
     document.getElementById('malkovitch').onclick = changeWord;
@@ -9,7 +11,28 @@ function pigLatin(){
     const text = document.getElementById('myTextArea').value;
     const words = text.split(' ');
     const vowels = ["a", "e", "i", "o", "u"];
-  // using map
+    
+//using replace
+    // let result = text.replace(/[a-zA-Z]{1,}/g, function(word){
+    //     const first = word[0].toLowerCase();
+    //     if(vowels.includes(first)){
+    //         return word + "ay";
+    //     }
+    //     else{
+    //         let pos =1;
+    //         for(let i = 1; i<word.length; i++){
+    //             if(vowels.includes(word[i])){
+    //                 break;
+    //             }
+    //             pos++;
+    //         }
+    //         const firstCluster = word.substring(0,pos);
+    //         return word.slice(pos) + firstCluster + "ay";
+    //     }
+    // });
+    // document.getElementById('myTextArea').value = result;
+
+// using map
     const edited = words.map((word) => {
         const first = word[0].toLowerCase();
         if(vowels.includes(first)){
@@ -33,16 +56,39 @@ function pigLatin(){
 function changeWord(){
     const text = document.getElementById('myTextArea').value;
     const words = text.split(' ');
-   function myTimer(){
+   
+
+// using replace 
+    let result = text.replace(/[a-zA-Z]{5,}/g,"Malkovich");
+    document.getElementById('myTextArea').value = result;
+   
+// using for loop
+    // for(let i =0 ; i < words.length;i++){
+    //     if(words[i].length>=5){
+    //         words[i]="Malkovich";
+    //     }
+    // }
+    // document.getElementById('myTextArea').value = words.join(' ');
+
+// using map
+    //  const replaced = words.map(word => {
+    //     if (word.length >= 5) {
+    //       return "Malkovich";
+    //     } else {
+    //       return word;
+    //     }
+    //   });
+    //   document.getElementById('myTextArea').value = replaced.join(' ');
+}
+
+function myTimer(){
     setInterval(biggerDec,500);
 }
-
-    function biggerDec() {
-    var size = parseInt(window.getComputedStyle(document.getElementById("myTextArea")).fontSize);
-    size += 4;
-    document.getElementById("myTextArea").style.fontSize = size + "px";
+function biggerDec() {
+    var size = parseInt(document.getElementById("myTextArea").style.fontSize);
+    size += 4; 
+    document.getElementById("myTextArea").style.fontSize = size + "pt";           
 }
-
 
 function myFunction(){
     const isChecked = document.getElementById("myCheckbox").checked;
@@ -62,4 +108,3 @@ function myFunction(){
         document.body.style.backgroundImage= "none";
     }
 }
-  
