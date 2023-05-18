@@ -36,11 +36,13 @@ function changeWord(){
    function myTimer(){
     setInterval(biggerDec,500);
 }
-function biggerDec() {
-    var size = parseInt(document.getElementById("myTextArea").style.fontSize);
-    size += 4; 
-    document.getElementById("myTextArea").style.fontSize = size + "pt";           
+
+    function biggerDec() {
+    var size = parseInt(window.getComputedStyle(document.getElementById("myTextArea")).fontSize);
+    size += 4;
+    document.getElementById("myTextArea").style.fontSize = size + "px";
 }
+
 
 function myFunction(){
     const isChecked = document.getElementById("myCheckbox").checked;
