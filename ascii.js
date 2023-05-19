@@ -76,3 +76,4 @@ window.onload = function() {
             timer = setInterval(display, speed);
         }
     }
+};
