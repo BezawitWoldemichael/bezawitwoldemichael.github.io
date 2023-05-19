@@ -1,70 +1,78 @@
-"use strict";
-$(document).ready( function(){
-    var speed= 250;
-    var intervalId;
-    var timeoutId = [];
-    var myString = [];
-    var started = false;
-    if(!started){
-        $("#stop").prop("disabled",true);
-    }
-    $("#start").click(start);
-    $('#stop').click(stop);
-    $("#textarea").change(function(){
-            ANIMATIONS[$("#animations").val()] = $("#textarea").val().replace(/\r?\n/g, '\n'); 
-    });
-    $("#animations, #size, #speed").change(function(){
-        $("#textarea").css('font-size',$('#size').val())
-        if($('#speed').prop("checked")){
-            speed = $("#speed").val();
-        }
-        else{
-            speed = 250;
-        }
-        if(started){
-            start();
-        }
-        else{
-            $("#textarea").val(ANIMATIONS[$("#animations").val()]);
-        }
-    });
-    
-    function start(){
-        $("#textarea").prop("disabled", true);
-        $("#start").prop("disabled",true);
-        $("#stop").prop("disabled",false);
-        $("#animations").prop("disabled",true);
-        started = true;
-        clearInterval(intervalId);
-        for(let i =0; i<myString.length;i++){
-            clearTimeout(timeoutId[i]);
-        }
-        var animationType = $("#animations").val();
-        myString = ANIMATIONS[animationType];
-        myString = myString.split("=====\n")
-        myAnimation();
-        intervalId = setInterval(myAnimation,speed*myString.length);
-        function myAnimation(){
-            for(let i =0; i<myString.length;i++){
-                (function(index){
-                    timeoutId[i] = setTimeout(function(){
-                        $("textarea").val(myString[index])
-                    },speed * index)
-                })(i);
-            }
-        }
+window.onload = function() {
+    // to resolve missing "use strict" statement jshint error
+    "use strict";
+    var timer = null;
+    var speed = 250;
+    var frame = 0;
+    var size = document.getElementById("fontsize").value;
+
+    // attach event handler for start button
+    document.getElementById("start").onclick = function() {
+        toggleButton();
+        timer = setInterval(display, speed);
+    };
+
+    // attach event handler for stop button
+    document.getElementById("stop").onclick = function() {
+        if(timer){
+            clearInterval(timer);
+            timer = null;
+        } 
+        display("idle");   
+        toggleButton();
+    };
+
+    // attach event handler for animation option change
+    document.getElementById("animation").onchange = function() {
+        frame = 0;
+        display("idle"); 
+    };
+
+    // attach event handler for font size change
+    document.getElementById("fontsize").onchange = function() {
+        size = document.getElementById("fontsize").value;
+        document.getElementById("text-area").className = size;
+        resetInterval();
+    };
+
+    // attach event handler for speed change
+    document.getElementById("turbo").onchange = function() {
+        speed = document.getElementById("turbo").checked ? 50 : 250;
+        resetInterval();
+    };
+
+    // function to button toggle buttons when animation is running and stopped
+    function toggleButton(){
+        document.getElementById("start").disabled = !document.getElementById("start").disabled;
+        document.getElementById("stop").disabled = !document.getElementById("stop").disabled;
+        document.getElementById("animation").disabled = !document.getElementById("animation").disabled;
     }
 
-   function stop(){
-        started = false;
-        $("#animations").prop("disabled",false);
-        $("#textarea").prop("disabled", false);
-        $("#start").prop("disabled",false);
-        $("#stop").prop("disabled",true);
-        clearInterval(intervalId);
-        for(let i =0; i<myString.length;i++){
-            clearTimeout(timeoutId[i]);
+    // function to display different text in textarea
+    function display(state) {
+        let txtarea = document.getElementById("text-area");
+        
+        // when idle then all the animation text should be displayed
+        if(state === "idle"){
+            txtarea.value = ANIMATIONS[document.getElementById("animation").value];
+        } else {
+            let parts = ANIMATIONS[document.getElementById("animation").value].split("=====");
+
+            if(parts.length === frame){
+                frame = 0;
+            }
+    
+            txtarea.value = parts[frame];
         }
-        $("#textarea").val(ANIMATIONS[$("#animations").val()]);
-   }
-});
+
+        //increment frame value so that next frame is displayed when display function is called next time
+        frame++;
+    }
+
+    // function to clear existing interval and create new with different delay
+    function resetInterval(){
+        if(timer){
+            clearInterval(timer);
+            timer = setInterval(display, speed);
+        }
+    }
